@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Namma Kudla Travel Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Namma Kudla</h1>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#destinations" class="nav-link">Destinations</a></li>
+        <li><a href="#guides" class="nav-link">Guides</a></li>
+        <li><a href="#travel-stories" class="nav-link">Travel Stories</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="search-bar">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search posts..."
+          aria-label="Search posts"
+          onkeyup="searchPosts()"
+        />
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+      <div class="banner">
+        <h2>Welcome to Namma Kudla</h2>
+        <p>
+          Experience the charm of Kudla's rich cultural heritage, stunning
+          landscapes, and vibrant traditions.
+        </p>
+      </div>
+      <section class="featured-posts-section">
+        <h3>Featured Posts</h3>
+        <div class="posts-container" id="featuredPosts">
+          <!-- Dynamic featured posts -->
+          <article class="post-card">
+            <img
+              src="https://images.unsplash.com/photo-1536003890914-128df79bd660?auto=format&fit=crop&w=800&q=80"
+              alt="Beach view"
+            />
+            <h4>Top 5 Beaches in Kudla</h4>
+            <p>Author: Blogger1 | Date: 2025-10-01</p>
+            <p>Discover the most beautiful beaches along the Kudla coastline.</p>
+          </article>
+          <article class="post-card">
+            <img
+              src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80"
+              alt="Cultural festival"
+            />
+            <h4>Kudla’s Cultural Festivals You Shouldn't Miss</h4>
+            <p>Author: Guide1 | Date: 2025-09-15</p>
+            <p>A glimpse into festivals reflecting the local heritage and traditions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="popular-destinations-section">
+        <h3>Popular Destinations</h3>
+        <div class="destinations-container" id="popularDestinations">
+          <div class="destination-card">
+            <img
+              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=600&q=80"
+              alt="Temple"
+            />
+            <h4>Udupi Sri Krishna Temple</h4>
+            <p>Explore this ancient temple renowned for its spiritual significance.</p>
+          </div>
+          <div class="destination-card">
+            <img
+              src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
+              alt="Hill station"
+            />
+            <h4>Kudremukh National Park</h4>
+            <p>A natural reserve with lush forests and breathtaking views.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="recent-updates-section">
+        <h3>Recent Updates</h3>
+        <ul class="updates-list">
+          <li>October 2025: New guides added for heritage walks!</li>
+          <li>September 2025: Updated travel tips for monsoon season.</li>
+          <li>August 2025: Launch of interactive maps feature.</li>
+        </ul>
+      </section>
+
+      <section class="newsletter-section">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form id="newsletterForm">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            aria-label="Email for newsletter subscription"
+            required
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+      <h2>Blog Posts</h2>
+      <div class="blog-content">
+        <aside class="sidebar">
+          <h4>Categories</h4>
+          <ul id="categoryList">
+            <li><button onclick="filterByCategory('Culture')">Culture</button></li>
+            <li><button onclick="filterByCategory('Nature')">Nature</button></li>
+            <li><button onclick="filterByCategory('Food')">Food</button></li>
+          </ul>
+          <h4>Tags</h4>
+          <ul id="tagsList">
+            <li><button onclick="filterByTag('Festival')">Festival</button></li>
+            <li><button onclick="filterByTag('Beach')">Beach</button></li>
+            <li><button onclick="filterByTag('Temple')">Temple</button></li>
+          </ul>
+          <h4>Recent Posts</h4>
+          <ul id="recentPostsList">
+            <!-- Dynamic recent posts -->
+          </ul>
+        </aside>
+        <div class="posts" id="blogPosts">
+          <!-- Blog posts loaded dynamically -->
+          <article class="post" data-category="Culture" data-tags="Festival">
+            <h3>Discover Kudla’s Folk Dance</h3>
+            <p class="meta">By Blogger2 | 2025-08-20</p>
+            <img
+              src="https://images.unsplash.com/photo-1549221986-98a0a9bbd3ae?auto=format&fit=crop&w=800&q=60"
+              alt="Folk dance"
+            />
+            <p>
+              Experience the vibrant traditional folk dance forms unique to Kudla.
+            </p>
+
+            <section class="comments-section">
+              <h4>Comments</h4>
+              <div class="comments-list" id="comments1">
+                <!-- comments here -->
+                <p>No comments yet. Be the first!</p>
+              </div>
+              <form
+                onsubmit="submitComment(event, 'comments1')"
+                class="comment-form"
+              >
+                <textarea
+                  placeholder="Leave your comment here"
+                  required
+                  aria-label="Leave your comment"
+                ></textarea>
+                <button type="submit">Post Comment</button>
+              </form>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations-section">
+      <h2>Destinations</h2>
+      <div class="destinations-list">
+        <article class="destination">
+          <h3>St. Mary's Island</h3>
+          <img
+            src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=700&q=80"
+            alt="St. Mary's Island"
+          />
+          <p>
+            Famous for its unique geological formation and pristine beaches.
+          </p>
+          <iframe
+            src="https://maps.google.com/maps?q=st%20mary's%20island&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            aria-label="Map showing St. Mary's Island location"
+          ></iframe>
+          <h4>Travel Tips</h4>
+          <ul>
+            <li>Best visited during dry seasons (Nov - Mar).</li>
+            <li>Boat rides are subject to weather conditions.</li>
+          </ul>
+          <h4>Related Blog Posts</h4>
+          <ul>
+            <li><a href="#blog">Exploring the coastal gems</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" class="guides-section">
+      <h2>Our Guides</h2>
+      <div class="guides-profiles">
+        <article class="guide-profile">
+          <img
+            src="https://randomuser.me/api/portraits/women/44.jpg"
+            alt="Guide - Anitha Rao"
+          />
+          <h3>Anitha Rao</h3>
+          <p>Expertise: Cultural tours & history</p>
+          <p>
+            Passionate about sharing Kudla's traditions. Follow her on
+            <a href="https://twitter.com/anitharao" target="_blank"
+              >Twitter</a
+            >
+            and
+            <a href="https://instagram.com/anitharao" target="_blank"
+              >Instagram</a
+            >.
+          </p>
+          <button onclick="contactGuide('Anitha Rao')">Contact Guide</button>
+
+          <section class="feedback-section" id="feedbackAnithaRao">
+            <h4>Leave Feedback</h4>
+            <form
+              onsubmit="submitFeedback(event, 'feedbackAnithaRao')"
+              aria-label="Leave feedback for guide Anitha Rao"
+            >
+              <textarea placeholder="Your feedback" required></textarea>
+              <button type="submit">Submit Feedback</button>
+            </form>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <!-- Travel Guides Section -->
+    <section id="travel-guides" class="travel-guides-section">
+      <h2>In-depth Travel Guides</h2>
+      <article class="travel-guide">
+        <h3>Hidden Gems of Kudla</h3>
+        <p>
+          Discover lesser-known spots, local cuisines, and authentic cultural
+          experiences away from the crowds.
+        </p>
+      </article>
+      <article class="travel-guide">
+        <h3>Must-See Attractions</h3>
+        <p>
+          Complete guide to top attractions including temples, beaches, and
+          parks.
+        </p>
+      </article>
+    </section>
+
+    <!-- Travel Stories Section -->
+    <section id="travel-stories" class="travel-stories-section">
+      <h2>Travel Stories</h2>
+      <div class="stories-container" id="storiesContainer">
+        <!-- Dynamic stories -->
+        <article class="story">
+          <h4>My Monsoon Adventure in Kudla</h4>
+          <p>
+            The rousing rains and lush greenery made my trip unforgettable...
+          </p>
+          <p>– by Alice</p>
+        </article>
+      </div>
+      <section class="submit-story">
+        <h3>Share Your Story</h3>
+        <form id="storyForm">
+          <textarea
+            placeholder="Write your travel story..."
+            aria-label="Write your travel story"
+            required
+          ></textarea>
+          <button type="submit">Submit Story</button>
+        </form>
+      </section>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+      <h2>Dashboard Overview</h2>
+      <div class="metrics">
+        <div>Total Users: <span id="totalUsers">120</span></div>
+        <div>Recent Activities: <span id="recentActivities">45</span></div>
+      </div>
+      <div id="chartsContainer">
+        <!-- Future chart visualizations -->
+      </div>
+    </section>
+
+    <!-- User Management Section -->
+    <section id="user-management" class="user-management-section">
+      <h2>User Management</h2>
+      <button onclick="openCreateUserForm()">Create User</button>
+      <div id="userList">
+        <p>List of users will be displayed here.</p>
+      </div>
+    </section>
+
+    <!-- Content Management Section -->
+    <section id="content-management" class="content-management-section">
+      <h2>Content Management</h2>
+      <button onclick="openCreatePostForm()">Add New Post</button>
+      <div id="postList">
+        <p>Manage blog posts here.</p>
+      </div>
+    </section>
+
+    <!-- Notifications Section -->
+    <section id="notifications" class="notifications-section">
+      <h2>Notifications</h2>
+      <div id="notificationList">
+        <p>No new notifications.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <p>Contact us at support@nammakudla.com | Phone: +91-1234567890</p>
+      <p>© 2025 Namma Kudla Travel Blog. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
